@@ -14,8 +14,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Author: Dr. Oleg Trott <ot14@columbia.edu>, 
-           The Olson Lab, 
+   Author: Dr. Oleg Trott <ot14@columbia.edu>,
+           The Olson Lab,
            The Scripps Research Institute
 
 */
@@ -25,11 +25,13 @@
 
 #include "common.h"
 
-struct model; // forward declaration
+struct model;  // forward declaration
 
-struct igrid { // grids interface (that cache, etc. conform to)
-	virtual fl eval      (const model& m, fl v) const = 0; // needs m.coords // clean up
-	virtual fl eval_deriv(      model& m, fl v) const = 0; // needs m.coords, sets m.minus_forces // clean up
+struct igrid {  // grids interface (that cache, etc. conform to)
+  virtual fl eval(const model& m,
+                  fl v) const = 0;  // needs m.coords // clean up
+  virtual fl eval_deriv(model& m, fl v)
+      const = 0;  // needs m.coords, sets m.minus_forces // clean up
 };
 
 #endif

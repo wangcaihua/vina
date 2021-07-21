@@ -14,8 +14,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Author: Dr. Oleg Trott <ot14@columbia.edu>, 
-           The Olson Lab, 
+   Author: Dr. Oleg Trott <ot14@columbia.edu>,
+           The Olson Lab,
            The Scripps Research Institute
 
 */
@@ -26,20 +26,20 @@
 #include "common.h"
 
 struct pdb_atom {
-	unsigned id;
-	std::string name;
-	std::string residue_name;
-	int residue_id;
-	vec coords;
-	fl b_factor;
-	std::string element;
+  unsigned id;
+  std::string name;
+  std::string residue_name;
+  int residue_id;
+  vec coords;
+  fl b_factor;
+  std::string element;
 };
 
 struct pdb {
-	std::vector<pdb_atom> atoms;
-	void check(fl min_distance) const;
+  std::vector<pdb_atom> atoms;
+  void check(fl min_distance) const;
 };
 
-pdb parse_pdb(const path& name); // can throw parse_error
+pdb parse_pdb(const path& name);  // can throw parse_error
 
 #endif

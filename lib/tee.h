@@ -14,8 +14,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Author: Dr. Oleg Trott <ot14@columbia.edu>, 
-           The Olson Lab, 
+   Author: Dr. Oleg Trott <ot14@columbia.edu>,
+           The Olson Lab,
            The Scripps Research Institute
 
 */
@@ -24,43 +24,37 @@
 #define VINA_TEE_H
 
 #include <iostream>
+
 #include "file.h"
 
 struct tee {
-	ofile* of;
-	tee() : of(NULL) {}
-	void init(const path& name) {
-		of = new ofile(name);
-	}
-	virtual ~tee() { delete of; }
-	void flush() {
-		std::cout << std::flush;
-		if(of)
-			(*of) << std::flush;
-	}
-	void endl() {
-		std::cout << std::endl;
-		if(of)
-			(*of) << std::endl;
-	}
-	void setf(std::ios::fmtflags a) {
-		std::cout.setf(a);
-		if(of)
-			of->setf(a);
-	}
-	void setf(std::ios::fmtflags a, std::ios::fmtflags b) {
-		std::cout.setf(a, b);
-		if(of)
-			of->setf(a, b);
-	}
+  ofile* of;
+  tee() : of(NULL) {}
+  void init(const path& name) { of = new ofile(name); }
+  virtual ~tee() { delete of; }
+  void flush() {
+    std::cout << std::flush;
+    if (of) (*of) << std::flush;
+  }
+  void endl() {
+    std::cout << std::endl;
+    if (of) (*of) << std::endl;
+  }
+  void setf(std::ios::fmtflags a) {
+    std::cout.setf(a);
+    if (of) of->setf(a);
+  }
+  void setf(std::ios::fmtflags a, std::ios::fmtflags b) {
+    std::cout.setf(a, b);
+    if (of) of->setf(a, b);
+  }
 };
 
-template<typename T>
+template <typename T>
 tee& operator<<(tee& out, const T& x) {
-	std::cout << x;
-	if(out.of)
-		(*out.of) << x;
-	return out;
+  std::cout << x;
+  if (out.of) (*out.of) << x;
+  return out;
 }
 
 #endif

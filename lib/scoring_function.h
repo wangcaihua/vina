@@ -14,8 +14,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Author: Dr. Oleg Trott <ot14@columbia.edu>, 
-           The Olson Lab, 
+   Author: Dr. Oleg Trott <ot14@columbia.edu>,
+           The Olson Lab,
            The Scripps Research Institute
 
 */
@@ -25,13 +25,13 @@
 
 #include "atom_type.h"
 
-struct model; // forward declaration
+struct model;  // forward declaration
 
 struct scoring_function {
-	virtual atom_type::t atom_typing_used() const = 0;
-	virtual fl cutoff() const = 0;
-	virtual fl eval(sz t1, sz t2, fl r) const = 0;
-	virtual fl conf_independent(const model& m, fl e) const = 0;
+  virtual atom_type::t atom_typing_used() const = 0;
+  virtual fl cutoff() const = 0;
+  virtual fl eval(sz t1, sz t2, fl r) const = 0;
+  virtual fl conf_independent(const model& m, fl e) const = 0;
 };
 
 #endif

@@ -14,8 +14,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Author: Dr. Oleg Trott <ot14@columbia.edu>, 
-           The Olson Lab, 
+   Author: Dr. Oleg Trott <ot14@columbia.edu>,
+           The Olson Lab,
            The Scripps Research Institute
 
 */
@@ -29,19 +29,19 @@
 #include "incrementable.h"
 
 struct parallel_progress : public incrementable {
-	parallel_progress() : p(NULL) {}
-	void init(unsigned long n) { p = new boost::progress_display(n); }
-	void operator++() {
-		if(p) {
-			boost::mutex::scoped_lock self_lk(self);
-			++(*p);
-		}
-	}
-	virtual ~parallel_progress() { delete p; }
-private:
-	boost::mutex self;
-	boost::progress_display* p;
+  parallel_progress() : p(NULL) {}
+  void init(unsigned long n) { p = new boost::progress_display(n); }
+  void operator++() {
+    if (p) {
+      boost::mutex::scoped_lock self_lk(self);
+      ++(*p);
+    }
+  }
+  virtual ~parallel_progress() { delete p; }
+
+ private:
+  boost::mutex self;
+  boost::progress_display* p;
 };
 
 #endif
-

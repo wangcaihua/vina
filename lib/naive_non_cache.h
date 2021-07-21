@@ -14,8 +14,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Author: Dr. Oleg Trott <ot14@columbia.edu>, 
-           The Olson Lab, 
+   Author: Dr. Oleg Trott <ot14@columbia.edu>,
+           The Olson Lab,
            The Scripps Research Institute
 
 */
@@ -27,11 +27,14 @@
 #include "model.h"
 
 struct naive_non_cache : public igrid {
-	naive_non_cache(const precalculate* p_);
-	virtual fl eval      (const model& m, fl v) const; // needs m.coords
-	virtual fl eval_deriv(      model& m, fl v) const { VINA_CHECK(false); return 0; } // unused
-private:
-	const precalculate* p;
+  naive_non_cache(const precalculate* p_);
+  virtual fl eval(const model& m, fl v) const;  // needs m.coords
+  virtual fl eval_deriv(model& m, fl v) const {
+    VINA_CHECK(false);
+    return 0;
+  }  // unused
+ private:
+  const precalculate* p;
 };
 
 #endif

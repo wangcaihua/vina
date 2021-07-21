@@ -14,8 +14,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Author: Dr. Oleg Trott <ot14@columbia.edu>, 
-           The Olson Lab, 
+   Author: Dr. Oleg Trott <ot14@columbia.edu>,
+           The Olson Lab,
            The Scripps Research Institute
 
 */
@@ -30,9 +30,8 @@
 
 int my_pid() {
 #ifdef WIN32
-	return GetCurrentProcessId();
+  return GetCurrentProcessId();
 #else
-	return getpid();
+  return getpid();
 #endif
 }
-

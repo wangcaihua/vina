@@ -14,8 +14,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Author: Dr. Oleg Trott <ot14@columbia.edu>, 
-           The Olson Lab, 
+   Author: Dr. Oleg Trott <ot14@columbia.edu>,
+           The Olson Lab,
            The Scripps Research Institute
 
 */
@@ -26,15 +26,26 @@
 #include "model.h"
 
 struct ssd {
-	unsigned evals;
-	fl initial_factor;
-	fl min_factor;
-	fl up;
-	fl down;
-	void print() const { std::cout << "evals=" << evals << ", initial_factor=" << initial_factor << ", min_factor=" << min_factor << ", up=" << up << ", down=" << down; }
-	ssd() : evals(300), initial_factor(1e-4), min_factor(1e-6), up(1.6), down(0.5) {}
-	// clean up
-	void operator()(model& m, const precalculate& p, const igrid& ig, output_type& out, change& g, const vec& v) const; // g must have correct size
+  unsigned evals;
+  fl initial_factor;
+  fl min_factor;
+  fl up;
+  fl down;
+  void print() const {
+    std::cout << "evals=" << evals << ", initial_factor=" << initial_factor
+              << ", min_factor=" << min_factor << ", up=" << up
+              << ", down=" << down;
+  }
+  ssd()
+      : evals(300),
+        initial_factor(1e-4),
+        min_factor(1e-6),
+        up(1.6),
+        down(0.5) {}
+  // clean up
+  void operator()(model& m, const precalculate& p, const igrid& ig,
+                  output_type& out, change& g,
+                  const vec& v) const;  // g must have correct size
 };
 
 #endif

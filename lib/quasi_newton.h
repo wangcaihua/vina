@@ -14,8 +14,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Author: Dr. Oleg Trott <ot14@columbia.edu>, 
-           The Olson Lab, 
+   Author: Dr. Oleg Trott <ot14@columbia.edu>,
+           The Olson Lab,
            The Scripps Research Institute
 
 */
@@ -26,12 +26,13 @@
 #include "model.h"
 
 struct quasi_newton {
-	unsigned max_steps;
-	fl average_required_improvement;
-	quasi_newton() : max_steps(1000), average_required_improvement(0.0) {}
-	// clean up
-	void operator()(model& m, const precalculate& p, const igrid& ig, output_type& out, change& g, const vec& v) const; // g must have correct size
+  unsigned max_steps;
+  fl average_required_improvement;
+  quasi_newton() : max_steps(1000), average_required_improvement(0.0) {}
+  // clean up
+  void operator()(model& m, const precalculate& p, const igrid& ig,
+                  output_type& out, change& g,
+                  const vec& v) const;  // g must have correct size
 };
 
 #endif
-

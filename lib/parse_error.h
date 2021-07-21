@@ -14,8 +14,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Author: Dr. Oleg Trott <ot14@columbia.edu>, 
-           The Olson Lab, 
+   Author: Dr. Oleg Trott <ot14@columbia.edu>,
+           The Olson Lab,
            The Scripps Research Institute
 
 */
@@ -26,12 +26,15 @@
 #include "common.h"
 
 struct parse_error {
-	path file;
-	unsigned line;
-	std::string reason;
-	parse_error(const path& file_, unsigned line_, const std::string& reason_ = "") : file(file_), line(line_), reason(reason_) {}
-private:
-	parse_error() {}
+  path file;
+  unsigned line;
+  std::string reason;
+  parse_error(const path& file_, unsigned line_,
+              const std::string& reason_ = "")
+      : file(file_), line(line_), reason(reason_) {}
+
+ private:
+  parse_error() {}
 };
 
 #endif

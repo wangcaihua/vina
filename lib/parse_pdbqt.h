@@ -14,8 +14,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   Author: Dr. Oleg Trott <ot14@columbia.edu>, 
-           The Olson Lab, 
+   Author: Dr. Oleg Trott <ot14@columbia.edu>,
+           The Olson Lab,
            The Scripps Research Institute
 
 */
@@ -25,8 +25,9 @@
 
 #include "model.h"
 
-model parse_receptor_pdbqt(const path& rigid, const path& flex); // can throw parse_error
-model parse_receptor_pdbqt(const path& rigid); // can throw parse_error
-model parse_ligand_pdbqt  (const path& name); // can throw parse_error
+model parse_receptor_pdbqt(const path& rigid,
+                           const path& flex);   // can throw parse_error
+model parse_receptor_pdbqt(const path& rigid);  // can throw parse_error
+model parse_ligand_pdbqt(const path& name);     // can throw parse_error
 
 #endif
