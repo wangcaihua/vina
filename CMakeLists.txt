@@ -18,3 +18,6 @@ endif()
 file(GLOB SRCS lib/*.h lib/*.cpp)
 add_executable(vina main.cpp ${SRCS})
 target_link_libraries(vina ${Boost_LIBRARIES})
+
+add_executable(split split.cpp ${SRCS})
+target_link_libraries(split ${Boost_LIBRARIES})
